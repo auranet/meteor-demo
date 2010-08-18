@@ -27,14 +27,30 @@ module Meteor
         def absolutize(url, body)
           document = Hpricot(body)
           (document/"img").each do |img|
-            debugger
             source = img.attributes['src']
             if source !~ /\Ahttp:\/\//
               img.attributes['src'] = "#{url}" + source
-              p img
             end
           end
-          document.to_s
+          (document/"script").each do |script|
+            source = script.attributes['src']
+            if source !~ /\Ahttp:\/\//
+              script.attributes['src'] = "#{url}" + source
+            end
+          end
+          (document/"link").each do |link|
+            href = link.attributes['href']
+            if href !~ /\Ahttp:\/\//
+              link.attributes['href'] = "#{url}" + href
+            end
+          end
+          (document/"a").each do |a|
+            href = a.attributes['href']
+            if href !~ /\Ahttp:\/\//
+              a.attributes['href'] = "#{url}" + href
+            end
+          end
+          (document/"head").first.to_s + (document/"body").first.to_s
         end
         
       end
