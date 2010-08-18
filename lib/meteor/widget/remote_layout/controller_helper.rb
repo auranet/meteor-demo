@@ -50,7 +50,6 @@ module Meteor
               a.attributes['href'] = "#{url}" + href
             end
           end
-          debugger
           (document/('.' + remote_dom_id)).first.inner_html = render_to_string(:partial => partial)
           return (document/"head").first.to_s + (document/"body").first.to_s
         end
