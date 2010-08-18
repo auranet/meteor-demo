@@ -1,0 +1,6 @@
+<%= render_meteor_widget(::Meteor::Widget::SimpleDhtmlMenu::Spec.new(:name => "Objects",
+                                                                     :menu_items => [
+                                                                                      ["Genres", "/genres"],
+                                                                                      ["Books", "/books"],
+                                                                                      ["Authors", "/authors"]
+                                                                                    ])) %>
