@@ -13,7 +13,7 @@ module Meteor
 
       class Spec < ::Meteor::SpecBase
         
-        attr_accessor :url, :credentials, :remote_dom_id # to replace with local content
+        attr_accessor :url, :credentials, :remote_dom_id, :partial # to replace with local content
         
         def initialize(options={},&block)
           super(options,&block)

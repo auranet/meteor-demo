@@ -9,22 +9,22 @@ module Meteor
     module RemoteLayout
       module ControllerHelper
         
-        def content(url)
-          response = Net::HTTP.get_response(URI::parse(url))
+        def content(spec)
+          response = Net::HTTP.get_response(URI::parse(spec.url))
           if response
             response_code = response.code
             response_code = "999" if response.body =~ /\AERROR:/
             if response_code == "200"
-              return absolutize(url, response.body)
+              return absolutize(spec.url, response.body, spec.remote_dom_id, spec.partial)
             else
-              return "Made request to #{url}, got response code #{response_code}" + (response_code == "999" ? "\n#{response.body}" : "")
+              return "Made request to #{spec.url}, got response code #{response_code}" + (response_code == "999" ? "\n#{response.body}" : "")
             end
           else
-            return "Error getting response for URL #{url}"
+            return "Error getting response for URL #{spec.url}"
           end
         end
         
-        def absolutize(url, body)
+        def absolutize(url, body, remote_dom_id, partial)
           document = Hpricot(body)
           (document/"img").each do |img|
             source = img.attributes['src']
@@ -50,7 +50,9 @@ module Meteor
               a.attributes['href'] = "#{url}" + href
             end
           end
-          (document/"head").first.to_s + (document/"body").first.to_s
+          debugger
+          (document/('.' + remote_dom_id)).first.inner_html = render_to_string(:partial => partial)
+          return (document/"head").first.to_s + (document/"body").first.to_s
         end
         
       end
