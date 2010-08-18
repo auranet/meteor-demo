@@ -50,7 +50,13 @@ module Meteor
               a.attributes['href'] = "#{url}" + href
             end
           end
-          (document/('.' + remote_dom_id)).first.inner_html = render_to_string(:partial => partial)
+          (document/"form").each do |form|
+            action = form.attributes['action']
+            if action !~ /\Ahttp:\/\//
+              form.attributes['action'] = "#{url}" + action
+            end
+          end
+          (document/(remote_dom_id)).first.inner_html = render_to_string(:partial => partial)
           return (document/"head").first.to_s + (document/"body").first.to_s
         end
         
