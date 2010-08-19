@@ -1,6 +1,6 @@
 class BlahController < ApplicationController
   
-  include ::Meteor::Widget::RemoteLayout::ControllerHelper
+  include ::Meteor::Widget::RemoteContent::ControllerHelper
   
   def index
   end

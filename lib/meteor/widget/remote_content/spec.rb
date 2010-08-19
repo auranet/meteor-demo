@@ -1,13 +1,13 @@
 module Meteor
   module Widget
-    module RemoteLayout
+    module RemoteContent
       # You've generated a new Meteor Widget!
       #
       # Your new widget can be rendered with the following:
       #
-      # <%= render_meteor_widget(::Meteor::Widget::RemoteLayout::Spec.new(...) -%>
+      # <%= render_meteor_widget(::Meteor::Widget::RemoteContent::Spec.new(...) -%>
       #   
-      # This renders its partial, app/views/meteor/remote_layout/_render.rhtml.
+      # This renders its partial, app/views/meteor/remote_content/_render.rhtml.
       #
       # In your partial you can get a hold of your spec object with a local cal
 

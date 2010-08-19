@@ -6,7 +6,7 @@ require 'ruby-debug'
 
 module Meteor
   module Widget
-    module RemoteLayout
+    module RemoteContent
       module ControllerHelper
         
         def content(spec)
