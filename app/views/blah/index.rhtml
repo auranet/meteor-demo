@@ -1,4 +1,3 @@
-<%= render_meteor_widget(::Meteor::Widget::RemoteContent::Spec.new(:name => "Objects",
-                                                                  :url => "http://www.aura-software.com",
-                                                                  :remote_dom_id => ".section.content-body",
-                                                                  :partial => "blah/test.rhtml")) %>
+<%= render_meteor_widget(::Meteor::Widget::RemoteContent::Spec.new(:url           => "http://www.aura-software.com",
+                                                                   :remote_dom_id => ".section.content-body",
+                                                                   :partial       => "blah/test.rhtml")) %>
