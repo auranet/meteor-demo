@@ -12,7 +12,11 @@ module Meteor
       # In your partial you can get a hold of your spec object with a local cal
 
       class Spec < ::Meteor::SpecBase
-        
+
+        def self.renderer_class
+          ::Meteor::Widget::RemoteContent::Renderer
+        end
+
         attr_accessor :url, :credentials, :remote_dom_id, :partial # to replace with local content
         
         def initialize(options={},&block)
