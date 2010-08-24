@@ -55,7 +55,7 @@ module Meteor
               form.attributes['action'] = "#{url}" + action
             end
           end
-          (document/(remote_dom_id)).first.inner_html = @template.render_to_string(:partial => partial)
+          (document/(remote_dom_id)).first.inner_html = @template.render(:partial => partial)
           return (document/"head").first.to_s + (document/"body").first.to_s
         end
       end
