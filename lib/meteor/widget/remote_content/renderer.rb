@@ -8,6 +8,7 @@ module Meteor
   module Widget
     module RemoteContent
       class Renderer < ::Meteor::RendererBase
+        
         def content
           response = Net::HTTP.get_response(URI::parse(spec.url))
           if response
@@ -58,6 +59,7 @@ module Meteor
           (document/(remote_dom_id)).first.inner_html = @template.render(:partial => partial)
           return (document/"head").first.to_s + (document/"body").first.to_s
         end
+        
       end
     end
   end
