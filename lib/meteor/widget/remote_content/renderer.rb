@@ -24,7 +24,7 @@ module Meteor
           end
         end
         
-        def absolutize(url, body, remote_dom_id, partial)
+        def absolutize(url, body, remote_dom_id = nil, partial = nil)
           document = Hpricot(body)
           (document/"img").each do |img|
             source = img.attributes['src']
@@ -56,7 +56,7 @@ module Meteor
               form.attributes['action'] = "#{url}" + action
             end
           end
-          (document/(remote_dom_id)).first.inner_html = @template.render(:partial => partial)
+          (document/(remote_dom_id)).first.inner_html = @template.render(:partial => partial) if remote_dom_id && partial
           return (document/"head").first.to_s + (document/"body").first.to_s
         end
         
