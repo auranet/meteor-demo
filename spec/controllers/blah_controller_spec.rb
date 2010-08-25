@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe BlahController do
   
-  describe "with partial" do
+  context "with partial" do
     
     before(:all) do
       @content = ::Meteor::Widget::RemoteContent::Spec.new(:url           => "http://www.aura-software.com",
@@ -20,7 +20,7 @@ describe BlahController do
   
   end
   
-  describe "without partial" do
+  context "without partial" do
     
     before(:all) do
       @content = ::Meteor::Widget::RemoteContent::Spec.new(:url           => "http://www.aura-software.com").render
