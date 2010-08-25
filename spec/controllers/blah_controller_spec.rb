@@ -23,8 +23,7 @@ describe BlahController do
   describe "without partial" do
     
     before(:all) do
-      @content = ::Meteor::Widget::RemoteContent::Spec.new(:url           => "http://www.aura-software.com",
-                                                           :remote_dom_id => ".section.content-body").render
+      @content = ::Meteor::Widget::RemoteContent::Spec.new(:url           => "http://www.aura-software.com").render
     end
     
     it "should render the specified remote content" do
