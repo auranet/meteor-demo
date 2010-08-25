@@ -9,9 +9,11 @@ describe BlahController do
   end
   
   it "should render the specified remote content" do
-    @content.should match(/200 *OK/)
+    @content.should match(%r|</body>|)
   end
   
-  it "should replace content with the provided partial"
+  it "should replace content with the provided partial" do
+    @content.should match(%r|<div class="section content-body"><h3>Hello!</h3></div>|)
+  end
   
 end
