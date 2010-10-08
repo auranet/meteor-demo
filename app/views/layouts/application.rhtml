@@ -1,9 +1,16 @@
 <html>
-  <%= render_meteor_widget(::Meteor::Widget::DhtmlMenu::Spec.new(:name => "Objects",
-                                                                 :menu_items => [
-                                                                                  ["Genres", "/genres"],
-                                                                                  ["Books", "/books"],
-                                                                                  ["Authors", "/authors"]
-                                                                                ])) %>
-  <%= yield %>
+  <body id="application">
+    <%= render_meteor_widget(::Meteor::Widget::DhtmlMenu::Spec.new(:name => "Objects",
+                                                                   :menu_items => [
+                                                                                    ["Genres", "/genres"],
+                                                                                    ["Books", "/books"],
+                                                                                    ["Authors", "/authors"]
+                                                                                  ])) %>
+    <hr/>
+    <table border="solid">
+      <%= yield %>
+    </table>
+  </body>
+    
+  </body>
 </html>
